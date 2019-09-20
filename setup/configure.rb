@@ -3,7 +3,6 @@ enable :cross_origin
 set :allow_origin, :any
 set :allow_methods, [ :get, :post, :put, :delete, :options ]
 
-
 set :views, "app/views"
 
 set :static, true
