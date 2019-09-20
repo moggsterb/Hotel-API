@@ -6,12 +6,15 @@ put "/users/:id" do |id|
     user = User.find_by(id: id)
     halt 404 if user.nil?
 
+    data = JSON.parse( request.body.read.to_s )
+    puts "***** #{data}"
 
-    user.assign_attributes @params
+
+    user.assign_attributes data
 
     if user.save
-        user.as_json
+        user.to_json
     else
-        user.errors.messages        
+        user.to_json        
     end
 end
