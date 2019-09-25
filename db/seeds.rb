@@ -4,6 +4,16 @@ users = [
     { first_name: 'Dick', last_name: 'Richards', email: 'dickie@richards.com' },
 ]
 
-users.each do |u|
-    User.create(u)
+# users.each do |u|
+#     User.create(u)
+# end
+
+hotels = [
+    { name: 'Old Kent Road', color: 'Brown' },
+    { name: 'Pall Mall', color: 'Pink' },
+    { name: 'The Strand', color: 'Red' }
+]
+
+hotels.each do |h|
+    Hotel.create(h)
 end
