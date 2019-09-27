@@ -7,6 +7,14 @@
 </ul>
 
 
+<p><a href='/deeds'>All Deeds</a></p>
+
+<ul>
+<% @deeds.each do |deed| %>
+    <li><a href='/deeds/<%= deed.id %>''><%= deed.name %> </a></li>
+<% end %>
+</ul>
+
 
 <p><a href='/hotels'>All Hotels</a></p>
 

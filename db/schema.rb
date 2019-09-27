@@ -12,11 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2019_09_25_104938) do
 
+  create_table "deeds", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.string "color"
+    t.integer "board_order"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "hotels", force: :cascade do |t|
     t.string "name"
-    t.string "color"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "rating"
+    t.integer "deed_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deed_id"], name: "index_hotels_on_deed_id"
   end
 
   create_table "users", force: :cascade do |t|
