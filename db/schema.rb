@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_104938) do
+ActiveRecord::Schema.define(version: 2019_10_22_092044) do
 
-  create_table "deeds", force: :cascade do |t|
+  create_table "deeds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.string "color"
@@ -21,21 +21,42 @@ ActiveRecord::Schema.define(version: 2019_09_25_104938) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "hotels", force: :cascade do |t|
+  create_table "hotels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "rating"
-    t.integer "deed_id", null: false
+    t.bigint "deed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deed_id"], name: "index_hotels_on_deed_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "resources", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "account_id"
+    t.string "resource"
+    t.string "interaction_type"
+    t.string "message_type"
+    t.integer "index"
+    t.string "url"
+    t.string "referrer"
+    t.string "narrative", limit: 4000
+    t.integer "content_provided"
+    t.date "date"
+    t.string "timestamp"
+    t.string "document_id"
+    t.string "document_title"
+    t.string "document_url"
+    t.datetime "created_at"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "city"
+    t.boolean "admin"
+    t.integer "cash"
   end
 
 end

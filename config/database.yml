@@ -1,4 +1,11 @@
-development:
-  adapter: sqlite3
-  database: hotel.sqlite3
+# development:
+#   adapter: sqlite3
+#   database: hotel.sqlite3
 
+development:
+  adapter: mysql2
+  host: localhost
+  username: site
+  password: hu11
+  database: hotel
+  
